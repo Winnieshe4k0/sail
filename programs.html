@@ -139,17 +139,50 @@
 
     /* SCHEDULE */
     .schedule-section { padding: 72px 48px; border-top: 1px solid rgba(66,66,66,0.08); }
-    .week-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 32px; }
-    .day-card { border: 1.5px solid rgba(66,66,66,0.1); border-radius: 16px; overflow: hidden; }
-    .day-card-header { padding: 14px 16px; background: rgba(255,255,255,0.4); border-bottom: 1px solid rgba(66,66,66,0.08); }
-    .day-name { font-family: 'Caprasimo', cursive; font-size: 14px; margin-bottom: 2px; }
-    .day-date-label { font-size: 10px; opacity: 0.4; letter-spacing: 1px; }
-    .day-card-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
-    .day-activity { display: flex; gap: 8px; align-items: flex-start; }
-    .act-time { font-size: 10px; color: var(--amber); font-weight: 500; white-space: nowrap; padding-top: 2px; min-width: 34px; }
-    .act-name { font-size: 12px; opacity: 0.7; line-height: 1.4; }
-    .day-card.highlight { border-color: var(--amber); }
-    .day-card.highlight .day-card-header { background: rgba(253,180,78,0.12); }
+    .schedule-heading { cursor: default; user-select: none; }
+    .schedule-grid { display: flex; flex-direction: column; gap: 6px; margin-top: 32px; }
+    .schedule-item { display: grid; grid-template-columns: 155px 175px 1fr auto; gap: 16px; align-items: center; padding: 18px 24px; border-radius: 14px; background: rgba(255,255,255,0.38); border: 1.5px solid rgba(66,66,66,0.08); transition: background 0.2s; }
+    .schedule-item:hover { background: rgba(255,255,255,0.6); }
+    .schedule-day { font-family: 'Caprasimo', cursive; font-size: 15px; }
+    .schedule-time { font-size: 14px; opacity: 0.52; font-variant-numeric: tabular-nums; }
+    .schedule-group { font-size: 14px; }
+    .schedule-note { font-size: 12px; opacity: 0.35; text-align: right; }
+    .schedule-empty { text-align: center; padding: 48px; opacity: 0.28; font-size: 14px; font-style: italic; }
+
+    /* ADMIN */
+    .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(25,15,5,0.58); z-index: 500; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+    .admin-overlay.open { display: flex; }
+    .admin-modal { background: var(--bg); border-radius: var(--radius); padding: 40px; width: 340px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 28px 72px rgba(0,0,0,0.22); }
+    .admin-modal-title { font-family: 'Caprasimo', cursive; font-size: 22px; margin-bottom: 4px; }
+    .admin-modal-sub { font-size: 13px; opacity: 0.45; margin-top: -6px; }
+    .admin-error { color: #c0392b; font-size: 13px; min-height: 18px; }
+    .admin-modal-btns { display: flex; gap: 10px; }
+    .admin-panel { background: var(--bg); border-radius: var(--radius); width: min(760px, 95vw); max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 28px 72px rgba(0,0,0,0.22); }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; padding: 28px 32px 20px; border-bottom: 1px solid rgba(66,66,66,0.1); flex-shrink: 0; }
+    .admin-title { font-family: 'Caprasimo', cursive; font-size: 22px; }
+    .admin-close { background: none; border: none; font-size: 20px; cursor: pointer; opacity: 0.3; color: var(--slate); transition: opacity 0.2s; line-height: 1; }
+    .admin-close:hover { opacity: 1; }
+    .admin-body { overflow-y: auto; padding: 24px 32px 32px; display: flex; flex-direction: column; gap: 20px; }
+    .admin-section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); font-weight: 500; margin-bottom: 2px; }
+    .admin-list { display: flex; flex-direction: column; gap: 6px; }
+    .admin-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 30px 30px; gap: 8px; align-items: center; padding: 10px 14px; background: rgba(255,255,255,0.5); border-radius: 10px; border: 1.5px solid rgba(66,66,66,0.08); }
+    .admin-row input { border: none; background: transparent; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--slate); width: 100%; outline: none; border-radius: 6px; padding: 3px 6px; transition: background 0.15s; }
+    .admin-row input:focus { background: rgba(253,180,78,0.12); }
+    .admin-row-btn { background: none; border: none; cursor: pointer; font-size: 15px; opacity: 0.28; transition: opacity 0.2s, color 0.2s; color: var(--slate); padding: 4px; line-height: 1; }
+    .admin-row-btn:hover { opacity: 1; }
+    .admin-row-btn.save:hover { color: #27ae60; }
+    .admin-row-btn.delete:hover { color: #e74c3c; }
+    .admin-divider { height: 1px; background: rgba(66,66,66,0.08); }
+    .admin-form { display: flex; flex-direction: column; gap: 10px; }
+    .admin-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .admin-input { background: rgba(255,255,255,0.7); border: 1.5px solid rgba(66,66,66,0.14); border-radius: 10px; padding: 11px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--slate); outline: none; transition: border-color 0.2s; width: 100%; }
+    .admin-input:focus { border-color: var(--amber); }
+    .admin-btn-primary { background: var(--amber); color: var(--slate); border: none; border-radius: 100px; padding: 12px 28px; font-size: 14px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; align-self: flex-start; }
+    .admin-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(253,180,78,0.35); }
+    .admin-btn-ghost { background: transparent; color: var(--slate); border: 1.5px solid rgba(66,66,66,0.2); border-radius: 100px; padding: 11px 24px; font-size: 14px; font-family: 'DM Sans', sans-serif; cursor: pointer; opacity: 0.6; transition: opacity 0.2s; }
+    .admin-btn-ghost:hover { opacity: 1; }
+    .admin-col-hints { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 30px 30px; gap: 8px; padding: 0 14px; }
+    .admin-col-hint { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.28; }
 
     /* FOR WHOM */
     .forwhom-section { padding: 72px 48px; background: rgba(66,66,66,0.03); border-top: 1px solid rgba(66,66,66,0.08); }
@@ -198,8 +231,14 @@
 
       .programs-grid { grid-template-columns: 1fr; }
 
-      .week-grid { grid-template-columns: 1fr 1fr; }
-      .week-grid .day-card:last-child { grid-column: span 2; }
+      .schedule-item { grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px 16px; }
+      .schedule-note { text-align: left; }
+      .admin-panel { max-height: 95vh; border-radius: 16px; }
+      .admin-header { padding: 20px 20px 16px; }
+      .admin-body { padding: 16px 20px 24px; }
+      .admin-row { grid-template-columns: 1fr 1fr; }
+      .admin-col-hints { display: none; }
+      .admin-form-row { grid-template-columns: 1fr; }
 
       .forwhom-grid { grid-template-columns: 1fr; }
 
@@ -546,64 +585,10 @@
 
 <!-- SCHEDULE -->
 <section class="schedule-section" id="schedule">
-  <div class="section-label">Расписание</div>
-  <h2 class="section-h2">Неделя в лагере</h2>
-  <div class="week-grid">
-    <div class="day-card">
-      <div class="day-card-header">
-        <div class="day-name">Понедельник</div>
-        <div class="day-date-label">Старт недели</div>
-      </div>
-      <div class="day-card-body">
-        <div class="day-activity"><div class="act-time">09:30</div><div class="act-name">Знакомство с яхтой</div></div>
-        <div class="day-activity"><div class="act-time">11:00</div><div class="act-name">Первый выход на воду</div></div>
-        <div class="day-activity"><div class="act-time">14:00</div><div class="act-name">SUP и командные игры</div></div>
-      </div>
-    </div>
-    <div class="day-card highlight">
-      <div class="day-card-header">
-        <div class="day-name">Вторник</div>
-        <div class="day-date-label">Техника</div>
-      </div>
-      <div class="day-card-body">
-        <div class="day-activity"><div class="act-time">09:00</div><div class="act-name">Теория паруса</div></div>
-        <div class="day-activity"><div class="act-time">10:00</div><div class="act-name">Тренировка: лавировка</div></div>
-        <div class="day-activity"><div class="act-time">14:00</div><div class="act-name">Отработка манёвров</div></div>
-      </div>
-    </div>
-    <div class="day-card">
-      <div class="day-card-header">
-        <div class="day-name">Среда</div>
-        <div class="day-date-label">Команда</div>
-      </div>
-      <div class="day-card-body">
-        <div class="day-activity"><div class="act-time">09:30</div><div class="act-name">Командная гонка</div></div>
-        <div class="day-activity"><div class="act-time">12:00</div><div class="act-name">Разбор результатов</div></div>
-        <div class="day-activity"><div class="act-time">14:00</div><div class="act-name">Водный квест</div></div>
-      </div>
-    </div>
-    <div class="day-card highlight">
-      <div class="day-card-header">
-        <div class="day-name">Четверг</div>
-        <div class="day-date-label">Гонка</div>
-      </div>
-      <div class="day-card-body">
-        <div class="day-activity"><div class="act-time">09:30</div><div class="act-name">Подготовка к гонке</div></div>
-        <div class="day-activity"><div class="act-time">11:00</div><div class="act-name">Учебная регата</div></div>
-        <div class="day-activity"><div class="act-time">15:00</div><div class="act-name">Дебриф и разбор</div></div>
-      </div>
-    </div>
-    <div class="day-card">
-      <div class="day-card-header">
-        <div class="day-name">Пятница</div>
-        <div class="day-date-label">Итоги недели</div>
-      </div>
-      <div class="day-card-body">
-        <div class="day-activity"><div class="act-time">09:30</div><div class="act-name">Свободное плавание</div></div>
-        <div class="day-activity"><div class="act-time">13:00</div><div class="act-name">SUP и отдых</div></div>
-        <div class="day-activity"><div class="act-time">16:00</div><div class="act-name">Итоги + обратная связь</div></div>
-      </div>
-    </div>
+  <div class="section-label">Когда приходить</div>
+  <h2 class="section-h2 schedule-heading" id="scheduleHeading">Расписание</h2>
+  <div class="schedule-grid" id="scheduleGrid">
+    <!-- Заполняется из localStorage -->
   </div>
 </section>
 
@@ -659,6 +644,57 @@
   <div class="footer-contact">Москва, Строгино · Водноспортивная база МКС<br><a href="https://t.me/Oleg_Metelskiy" target="_blank">@Oleg_Metelskiy</a> · <a href="https://t.me/Stroginokids" target="_blank">Канал @Stroginokids</a></div>
 </footer>
 
+<!-- PASSWORD MODAL -->
+<div class="admin-overlay" id="passwordOverlay">
+  <div class="admin-modal">
+    <div class="admin-modal-title">Вход в панель</div>
+    <div class="admin-modal-sub">Управление расписанием</div>
+    <input type="password" class="admin-input" id="passwordInput" placeholder="Пароль">
+    <div class="admin-error" id="adminError"></div>
+    <div class="admin-modal-btns">
+      <button class="admin-btn-primary" id="passwordSubmit">Войти</button>
+      <button class="admin-btn-ghost" id="passwordCancel">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <div class="admin-title">Расписание</div>
+      <button class="admin-close" id="adminClose">✕</button>
+    </div>
+    <div class="admin-body">
+      <div>
+        <div class="admin-section-label">Текущие записи</div>
+        <div class="admin-col-hints">
+          <span class="admin-col-hint">День</span>
+          <span class="admin-col-hint">Время</span>
+          <span class="admin-col-hint">Группа</span>
+          <span class="admin-col-hint">Примечание</span>
+          <span class="admin-col-hint"></span>
+          <span class="admin-col-hint"></span>
+        </div>
+        <div class="admin-list" id="adminList"></div>
+      </div>
+      <div class="admin-divider"></div>
+      <div class="admin-form">
+        <div class="admin-section-label">Добавить запись</div>
+        <div class="admin-form-row">
+          <input class="admin-input" id="newDay" placeholder="День недели">
+          <input class="admin-input" id="newTime" placeholder="Время (10:00–13:00)">
+        </div>
+        <div class="admin-form-row">
+          <input class="admin-input" id="newGroup" placeholder="Группа (Дети 7–10 лет)">
+          <input class="admin-input" id="newNote" placeholder="Примечание (необязательно)">
+        </div>
+        <button class="admin-btn-primary" id="addScheduleItem">Добавить →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
   document.getElementById('menuClose').addEventListener('click', closeMenu);
@@ -670,6 +706,159 @@
     document.getElementById('day-' + type).classList.add('active');
     btn.classList.add('active');
   }
+
+  // ── SCHEDULE ──────────────────────────────────────────────────
+  const SCHEDULE_KEY = 'parus_schedule';
+  const ADMIN_PASS   = '2026';
+
+  const DEFAULT_SCHEDULE = [
+    { id: 1, day: 'Понедельник', time: '10:00–13:00', group: 'Дети 7–10 лет',  note: 'Базовая программа' },
+    { id: 2, day: 'Вторник',    time: '10:00–13:00', group: 'Дети 11–14 лет', note: 'Базовая программа' },
+    { id: 3, day: 'Среда',      time: '10:00–15:00', group: 'Дети 7–10 лет',  note: 'Pro — расширенная' },
+    { id: 4, day: 'Четверг',    time: '10:00–15:00', group: 'Дети 11–14 лет', note: 'Pro — расширенная' },
+    { id: 5, day: 'Пятница',    time: '10:00–13:00', group: 'Все группы',     note: 'Итоговая регата'   },
+    { id: 6, day: 'Суббота',    time: '10:00–16:00', group: 'Взрослые',       note: 'Программа выходного дня' },
+  ];
+
+  function getSchedule() {
+    try { return JSON.parse(localStorage.getItem(SCHEDULE_KEY)) || DEFAULT_SCHEDULE; }
+    catch { return DEFAULT_SCHEDULE; }
+  }
+  function saveSchedule(items) {
+    localStorage.setItem(SCHEDULE_KEY, JSON.stringify(items));
+  }
+
+  function renderSchedule() {
+    const items = getSchedule();
+    const grid  = document.getElementById('scheduleGrid');
+    if (!items.length) {
+      grid.innerHTML = '<div class="schedule-empty">Расписание появится здесь</div>';
+      return;
+    }
+    grid.innerHTML = items.map(item => `
+      <div class="schedule-item">
+        <div class="schedule-day">${item.day}</div>
+        <div class="schedule-time">${item.time}</div>
+        <div class="schedule-group">${item.group}</div>
+        <div class="schedule-note">${item.note}</div>
+      </div>
+    `).join('');
+  }
+
+  // 5 кликов по заголовку «Расписание» → открыть пароль
+  let _clicks = 0, _clickTimer = null;
+  document.getElementById('scheduleHeading').addEventListener('click', () => {
+    _clicks++;
+    clearTimeout(_clickTimer);
+    _clickTimer = setTimeout(() => { _clicks = 0; }, 2000);
+    if (_clicks >= 5) {
+      _clicks = 0;
+      document.getElementById('passwordOverlay').classList.add('open');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('adminError').textContent = '';
+      setTimeout(() => document.getElementById('passwordInput').focus(), 80);
+    }
+  });
+
+  document.getElementById('passwordSubmit').addEventListener('click', checkPass);
+  document.getElementById('passwordInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPass();
+    if (e.key === 'Escape') closePassModal();
+  });
+  document.getElementById('passwordCancel').addEventListener('click', closePassModal);
+  document.getElementById('passwordOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('passwordOverlay')) closePassModal();
+  });
+
+  function checkPass() {
+    if (document.getElementById('passwordInput').value === ADMIN_PASS) {
+      closePassModal();
+      openAdmin();
+    } else {
+      document.getElementById('adminError').textContent = 'Неверный пароль';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+    }
+  }
+  function closePassModal() {
+    document.getElementById('passwordOverlay').classList.remove('open');
+  }
+
+  function openAdmin() {
+    document.getElementById('adminOverlay').classList.add('open');
+    renderAdminList();
+  }
+  document.getElementById('adminClose').addEventListener('click', () => {
+    document.getElementById('adminOverlay').classList.remove('open');
+  });
+  document.getElementById('adminOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('adminOverlay'))
+      document.getElementById('adminOverlay').classList.remove('open');
+  });
+
+  function renderAdminList() {
+    const items = getSchedule();
+    const list  = document.getElementById('adminList');
+    if (!items.length) {
+      list.innerHTML = '<div style="opacity:.35;font-size:13px;padding:10px 14px">Нет записей — добавьте первую ниже</div>';
+      return;
+    }
+    list.innerHTML = items.map(item => `
+      <div class="admin-row" data-id="${item.id}">
+        <input value="${item.day}"   data-field="day"   placeholder="День">
+        <input value="${item.time}"  data-field="time"  placeholder="Время">
+        <input value="${item.group}" data-field="group" placeholder="Группа">
+        <input value="${item.note}"  data-field="note"  placeholder="Примечание">
+        <button class="admin-row-btn save"   title="Сохранить">✓</button>
+        <button class="admin-row-btn delete" title="Удалить">✕</button>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('.admin-row-btn.save').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row    = btn.closest('.admin-row');
+        const id     = +row.dataset.id;
+        const inputs = row.querySelectorAll('input');
+        const items  = getSchedule();
+        const idx    = items.findIndex(i => i.id === id);
+        if (idx !== -1) {
+          items[idx] = { id, day: inputs[0].value, time: inputs[1].value, group: inputs[2].value, note: inputs[3].value };
+          saveSchedule(items);
+          renderSchedule();
+          btn.style.color = '#27ae60';
+          btn.style.opacity = '1';
+          setTimeout(() => { btn.style.color = ''; btn.style.opacity = ''; }, 1200);
+        }
+      });
+    });
+
+    list.querySelectorAll('.admin-row-btn.delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = +btn.closest('.admin-row').dataset.id;
+        saveSchedule(getSchedule().filter(i => i.id !== id));
+        renderSchedule();
+        renderAdminList();
+      });
+    });
+  }
+
+  document.getElementById('addScheduleItem').addEventListener('click', () => {
+    const day   = document.getElementById('newDay').value.trim();
+    const time  = document.getElementById('newTime').value.trim();
+    const group = document.getElementById('newGroup').value.trim();
+    const note  = document.getElementById('newNote').value.trim();
+    if (!day || !time || !group) return;
+    const items = getSchedule();
+    const newId = items.length ? Math.max(...items.map(i => i.id)) + 1 : 1;
+    items.push({ id: newId, day, time, group, note });
+    saveSchedule(items);
+    renderSchedule();
+    renderAdminList();
+    ['newDay','newTime','newGroup','newNote'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('newDay').focus();
+  });
+
+  renderSchedule();
 </script>
 </body>
 </html>
