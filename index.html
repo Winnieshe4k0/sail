@@ -3,737 +3,230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strogino Sail — Детский водный лагерь в Строгино</title>
-  <meta name="description" content="Strogino Sail — детский водный лагерь на базе МКС в Строгино. Парусный спорт, SUP, командная среда и развитие через практику. Запись на лето 2025.">
-  <meta property="og:title" content="Strogino Sail — Детский водный лагерь">
-  <meta property="og:description" content="Парусный спорт, SUP и развитие ребёнка через воду. Строгино, МКС.">
+  <title>Парус Строгино — Парусный лагерь в Строгино</title>
+  <meta name="description" content="Парус Строгино — детский парусный лагерь на базе МКС в Строгино. Продолжаем традиции чемпионов, воспитываем новое поколение сильных и уверенных детей через парусный спорт.">
+  <meta property="og:title" content="Парус Строгино — Парусный лагерь в Строгино">
+  <meta property="og:description" content="Парусный спорт — это больше, чем спорт. Свобода, характер и путь к настоящему развитию ребёнка.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #F5E1C4;
       --amber: #FDB44E;
       --slate: #424242;
       --radius: 20px;
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--slate); overflow-x: hidden; }
 
-    body {
-      background: var(--bg);
-      font-family: 'DM Sans', sans-serif;
-      color: var(--slate);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(245, 225, 196, 0.92);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,225,196,0.92);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 14px 48px;
       border-bottom: 1px solid rgba(66,66,66,0.1);
     }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .nav-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .nav-logo video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      mix-blend-mode: multiply;
-    }
-
-    .nav-name {
-      font-family: 'Caprasimo', cursive;
-      font-size: 16px;
-      color: var(--slate);
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--slate);
-      opacity: 0.55;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .nav-logo video { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+    .nav-name { font-family: 'Caprasimo', cursive; font-size: 16px; color: var(--slate); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--slate); opacity: 0.55; text-decoration: none; transition: opacity 0.2s; }
     .nav-links a:hover { opacity: 1; }
-
-    .nav-btn {
-      background: var(--slate);
-      color: var(--bg);
-      border: none;
-      border-radius: 100px;
-      padding: 10px 22px;
-      font-size: 13px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
+    .nav-btn { background: var(--slate); color: var(--bg); border: none; border-radius: 100px; padding: 10px 22px; font-size: 13px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; transition: opacity 0.2s; }
     .nav-btn:hover { opacity: 0.8; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1.5px; background: var(--slate); border-radius: 2px; }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      width: 22px;
-      height: 1.5px;
-      background: var(--slate);
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* mobile menu */
+    /* MOBILE MENU */
     .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--bg);
-      z-index: 200;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
+      display: none; position: fixed; inset: 0;
+      background: var(--bg); z-index: 200;
+      flex-direction: column; align-items: center; justify-content: center; gap: 36px;
     }
-
     .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      font-family: 'Caprasimo', cursive;
-      font-size: 28px;
-      color: var(--slate);
-      text-decoration: none;
-      opacity: 0.7;
-    }
-
+    .mobile-menu a { font-family: 'Caprasimo', cursive; font-size: 30px; color: var(--slate); text-decoration: none; opacity: 0.7; }
     .mobile-menu a:hover { opacity: 1; }
+    .menu-close { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; opacity: 0.4; background: none; border: none; color: var(--slate); }
 
-    .mobile-menu-close {
-      position: absolute;
-      top: 20px;
-      right: 24px;
-      font-size: 28px;
-      cursor: pointer;
-      opacity: 0.4;
-      background: none;
-      border: none;
-      color: var(--slate);
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 560px;
-    }
-
-    .hero-left {
-      padding: 64px 48px 56px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-
-    .eyebrow-line {
-      width: 24px;
-      height: 1.5px;
-      background: var(--amber);
-    }
-
-    .eyebrow span {
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--amber);
-      font-weight: 500;
-    }
-
-    h1 {
-      font-family: 'Caprasimo', cursive;
-      font-size: 58px;
-      line-height: 1.05;
-      margin-bottom: 10px;
-    }
-
-    h1 em {
-      color: var(--amber);
-      font-style: normal;
-      display: block;
-    }
-
-    .hero-tagline {
-      font-size: 10px;
-      letter-spacing: 3.5px;
-      text-transform: uppercase;
-      opacity: 0.32;
-      margin-bottom: 20px;
-    }
-
-    .hero-sub {
-      font-size: 16px;
-      line-height: 1.8;
-      opacity: 0.62;
-      margin-bottom: 36px;
-      max-width: 400px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--amber);
-      color: var(--slate);
-      border: none;
-      border-radius: 100px;
-      padding: 14px 30px;
-      font-size: 14px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(253,180,78,0.4);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--slate);
-      border: 1.5px solid rgba(66,66,66,0.25);
-      border-radius: 100px;
-      padding: 13px 26px;
-      font-size: 13px;
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      opacity: 0.65;
-      transition: opacity 0.2s;
-    }
-
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
+    .hero-left { padding: 64px 48px 56px; display: flex; flex-direction: column; justify-content: center; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+    .eyebrow-line { width: 24px; height: 1.5px; background: var(--amber); }
+    .eyebrow span { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); font-weight: 500; }
+    h1 { font-family: 'Caprasimo', cursive; font-size: 56px; line-height: 1.05; margin-bottom: 10px; }
+    h1 em { color: var(--amber); font-style: normal; display: block; }
+    .hero-tagline { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; opacity: 0.32; margin-bottom: 20px; }
+    .hero-sub { font-size: 16px; line-height: 1.85; opacity: 0.65; margin-bottom: 36px; max-width: 400px; }
+    .hero-sub em { font-style: italic; opacity: 0.9; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--amber); color: var(--slate); border: none; border-radius: 100px; padding: 14px 30px; font-size: 14px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(253,180,78,0.4); }
+    .btn-ghost { background: transparent; color: var(--slate); border: 1.5px solid rgba(66,66,66,0.25); border-radius: 100px; padding: 13px 26px; font-size: 13px; font-family: 'DM Sans', sans-serif; cursor: pointer; opacity: 0.65; transition: opacity 0.2s; }
     .btn-ghost:hover { opacity: 1; }
-
-    .hero-right {
-      background: rgba(253,180,78,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
+    .hero-right { background: rgba(253,180,78,0.07); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-right svg { width: 100%; height: 100%; }
 
-    /* ── STATS ── */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid rgba(66,66,66,0.1);
-      border-bottom: 1px solid rgba(66,66,66,0.1);
-    }
-
-    .stat-item {
-      padding: 28px 48px;
-      border-right: 1px solid rgba(66,66,66,0.1);
-    }
-
+    /* STATS */
+    .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(66,66,66,0.1); border-bottom: 1px solid rgba(66,66,66,0.1); }
+    .stat-item { padding: 28px 48px; border-right: 1px solid rgba(66,66,66,0.1); }
     .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Caprasimo', cursive; font-size: 24px; line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; opacity: 0.42; }
 
-    .stat-num {
-      font-family: 'Caprasimo', cursive;
-      font-size: 26px;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
+    /* SECTIONS */
+    .section-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); font-weight: 500; margin-bottom: 10px; }
+    .section-h2 { font-family: 'Caprasimo', cursive; font-size: 32px; color: var(--slate); line-height: 1.2; margin-bottom: 32px; }
 
-    .stat-label {
-      font-size: 12px;
-      opacity: 0.42;
-    }
-
-    /* ── PROGRAMS ── */
-    .programs-section {
-      padding: 72px 48px;
-    }
-
-    .section-label {
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--amber);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .section-h2 {
-      font-family: 'Caprasimo', cursive;
-      font-size: 32px;
-      color: var(--slate);
-      line-height: 1.2;
-      margin-bottom: 32px;
-    }
-
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .price-card {
-      border: 1.5px solid rgba(66,66,66,0.12);
-      border-radius: var(--radius);
-      padding: 28px;
-      background: rgba(255,255,255,0.38);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-
+    /* PROGRAMS */
+    .programs-section { padding: 72px 48px; }
+    .programs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .price-card { border: 1.5px solid rgba(66,66,66,0.12); border-radius: var(--radius); padding: 28px; background: rgba(255,255,255,0.38); position: relative; overflow: hidden; transition: transform 0.2s; }
     .price-card:hover { transform: translateY(-3px); }
-
-    .price-card.featured {
-      background: var(--slate);
-      border-color: var(--slate);
-    }
-
-    .card-wave {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      opacity: 0.05;
-      pointer-events: none;
-    }
-
-    .card-tag {
-      display: inline-block;
-      background: rgba(253,180,78,0.2);
-      color: #9a5f00;
-      font-size: 10px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-bottom: 14px;
-      font-weight: 500;
-    }
-
-    .price-card.featured .card-tag {
-      background: rgba(253,180,78,0.18);
-      color: var(--amber);
-    }
-
-    .card-name {
-      font-family: 'Caprasimo', cursive;
-      font-size: 20px;
-      color: var(--slate);
-      margin-bottom: 8px;
-    }
-
+    .price-card.featured { background: var(--slate); border-color: var(--slate); }
+    .card-wave { position: absolute; bottom: 0; left: 0; right: 0; opacity: 0.05; pointer-events: none; }
+    .card-tag { display: inline-block; background: rgba(253,180,78,0.2); color: #9a5f00; font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; font-weight: 500; }
+    .price-card.featured .card-tag { background: rgba(253,180,78,0.18); color: var(--amber); }
+    .card-name { font-family: 'Caprasimo', cursive; font-size: 20px; color: var(--slate); margin-bottom: 8px; }
     .price-card.featured .card-name { color: var(--bg); }
-
-    .card-desc {
-      font-size: 13px;
-      opacity: 0.52;
-      line-height: 1.7;
-      margin-bottom: 22px;
-    }
-
-    .price-card.featured .card-desc { color: var(--bg); }
-
+    .card-desc { font-size: 13px; opacity: 0.52; line-height: 1.7; margin-bottom: 22px; }
+    .price-card.featured .card-desc { color: var(--bg); opacity: 0.55; }
     .price-rows { display: flex; flex-direction: column; gap: 8px; }
-
-    .price-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(66,66,66,0.08);
-    }
-
+    .price-row { display: flex; justify-content: space-between; font-size: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(66,66,66,0.08); }
     .price-row:last-child { border-bottom: none; padding-bottom: 0; }
-
     .price-row strong { font-weight: 500; }
+    .price-card.featured .price-row { color: var(--bg); border-bottom-color: rgba(245,225,196,0.1); }
 
-    .price-card.featured .price-row {
-      color: var(--bg);
-      border-bottom-color: rgba(245,225,196,0.1);
-    }
+    /* PHILOSOPHY */
+    .philosophy-section { padding: 72px 48px; background: rgba(66,66,66,0.03); border-top: 1px solid rgba(66,66,66,0.08); }
+    .phil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 32px; }
+    .phil-quote-block { padding-left: 22px; border-left: 3px solid var(--amber); }
+    .phil-quote { font-family: 'Caprasimo', cursive; font-size: 22px; line-height: 1.5; margin-bottom: 14px; }
+    .phil-author { font-size: 11px; opacity: 0.38; letter-spacing: 1px; text-transform: uppercase; }
+    .phil-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .phil-item { display: flex; gap: 14px; align-items: flex-start; font-size: 14px; line-height: 1.75; opacity: 0.65; }
+    .phil-dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
 
-    /* ── PHILOSOPHY ── */
-    .philosophy-section {
-      padding: 72px 48px;
-      background: rgba(66,66,66,0.03);
-      border-top: 1px solid rgba(66,66,66,0.08);
-    }
+    /* VALUES */
+    .values-section { padding: 72px 48px; border-top: 1px solid rgba(66,66,66,0.08); }
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 32px; }
+    .value-card { background: rgba(255,255,255,0.38); border: 1.5px solid rgba(66,66,66,0.1); border-radius: 16px; padding: 24px; }
+    .value-icon { font-size: 22px; margin-bottom: 12px; color: var(--amber); }
+    .value-name { font-family: 'Caprasimo', cursive; font-size: 15px; margin-bottom: 6px; }
+    .value-desc { font-size: 12px; opacity: 0.5; line-height: 1.7; }
 
-    .phil-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      margin-top: 32px;
-    }
-
-    .phil-quote-block {
-      padding-left: 22px;
-      border-left: 3px solid var(--amber);
-    }
-
-    .phil-quote {
-      font-family: 'Caprasimo', cursive;
-      font-size: 22px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .phil-author {
-      font-size: 11px;
-      opacity: 0.38;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .phil-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .phil-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      font-size: 14px;
-      line-height: 1.75;
-      opacity: 0.65;
-    }
-
-    .phil-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--amber);
-      border-radius: 50%;
-      margin-top: 7px;
-      flex-shrink: 0;
-    }
-
-    /* ── ABOUT ── */
-    .about-section {
-      padding: 72px 48px;
-      border-top: 1px solid rgba(66,66,66,0.08);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      margin-top: 32px;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 15px;
-      line-height: 1.85;
-      opacity: 0.65;
-      margin-bottom: 16px;
-    }
-
+    /* ABOUT */
+    .about-section { padding: 72px 48px; background: rgba(66,66,66,0.03); border-top: 1px solid rgba(66,66,66,0.08); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 32px; }
+    .about-text p { font-size: 15px; line-height: 1.9; opacity: 0.65; margin-bottom: 18px; }
     .about-text p:last-child { margin-bottom: 0; }
+    .trainer-card { background: rgba(255,255,255,0.4); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 32px; }
+    .trainer-avatar { width: 60px; height: 60px; background: rgba(253,180,78,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Caprasimo', cursive; font-size: 20px; color: var(--amber); margin-bottom: 18px; }
+    .trainer-name { font-family: 'Caprasimo', cursive; font-size: 22px; margin-bottom: 4px; }
+    .trainer-role { font-size: 11px; opacity: 0.4; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .trainer-desc { font-size: 13px; line-height: 1.8; opacity: 0.62; }
+    .trainer-legacy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(66,66,66,0.1); }
+    .trainer-legacy-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; font-weight: 500; }
+    .trainer-legacy-text { font-size: 13px; opacity: 0.55; line-height: 1.7; font-style: italic; }
 
-    .trainer-card {
-      background: rgba(255,255,255,0.4);
-      border: 1.5px solid rgba(66,66,66,0.1);
-      border-radius: var(--radius);
-      padding: 28px;
-    }
+    /* MISSION */
+    .mission-section { padding: 72px 48px; border-top: 1px solid rgba(66,66,66,0.08); }
+    .mission-box { background: rgba(253,180,78,0.1); border: 1.5px solid rgba(253,180,78,0.3); border-radius: var(--radius); padding: 48px; margin-top: 32px; }
+    .mission-text { font-family: 'Caprasimo', cursive; font-size: 24px; line-height: 1.55; color: var(--slate); max-width: 680px; }
 
-    .trainer-avatar {
-      width: 56px;
-      height: 56px;
-      background: rgba(253,180,78,0.25);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Caprasimo', cursive;
-      font-size: 20px;
-      color: var(--amber);
-      margin-bottom: 16px;
-    }
-
-    .trainer-name {
-      font-family: 'Caprasimo', cursive;
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-
-    .trainer-role {
-      font-size: 12px;
-      opacity: 0.45;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .trainer-desc {
-      font-size: 13px;
-      line-height: 1.75;
-      opacity: 0.62;
-    }
-
-    /* ── CTA ── */
+    /* CTA */
     .cta-section { padding: 0 48px 72px; }
-
-    .cta-box {
-      background: var(--slate);
-      border-radius: 24px;
-      padding: 56px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-waves {
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      height: 100%;
-      opacity: 0.06;
-      pointer-events: none;
-    }
-
-    .cta-h {
-      font-family: 'Caprasimo', cursive;
-      font-size: 30px;
-      color: var(--bg);
-      line-height: 1.3;
-      max-width: 380px;
-    }
-
+    .cta-box { background: var(--slate); border-radius: 24px; padding: 56px 60px; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; }
+    .cta-waves { position: absolute; right: 0; top: 0; bottom: 0; height: 100%; opacity: 0.06; pointer-events: none; }
+    .cta-h { font-family: 'Caprasimo', cursive; font-size: 30px; color: var(--bg); line-height: 1.3; max-width: 400px; }
     .cta-h span { color: var(--amber); }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; position: relative; z-index: 1; }
+    .btn-cta { background: var(--amber); color: var(--slate); border: none; border-radius: 100px; padding: 16px 36px; font-size: 15px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(253,180,78,0.4); }
+    .cta-note { font-size: 12px; color: rgba(245,225,196,0.38); }
 
-    .cta-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
+    /* FOOTER */
+    footer { padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(66,66,66,0.1); }
+    .footer-brand { font-family: 'Caprasimo', cursive; font-size: 15px; opacity: 0.35; }
+    .footer-tagline { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; opacity: 0.28; }
+    .footer-contact { font-size: 12px; opacity: 0.4; text-align: right; line-height: 1.8; }
+    .footer-contact a { color: var(--slate); text-decoration: none; }
+    .footer-contact a:hover { opacity: 1; }
+    a.btn-cta { display: inline-block; text-decoration: none; text-align: center; }
+    .cta-channel { color: rgba(245,225,196,0.45); text-decoration: none; font-size: 12px; }
+    .cta-channel:hover { color: rgba(245,225,196,0.75); }
+
+    /* BOAT & WAVE ANIMATIONS */
+    @keyframes boat-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
-
-    .btn-cta {
-      background: var(--amber);
-      color: var(--slate);
-      border: none;
-      border-radius: 100px;
-      padding: 16px 36px;
-      font-size: 15px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
+    @keyframes wave-rise {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
+    .boat-group { transform-box: fill-box; transform-origin: center; animation: boat-bob 3.2s ease-in-out infinite; }
+    .wave-anim-1 { animation: wave-rise 2.8s ease-in-out infinite; }
+    .wave-anim-2 { animation: wave-rise 3.4s ease-in-out infinite 0.6s; }
+    .wave-anim-3 { animation: wave-rise 3.8s ease-in-out infinite 1.1s; }
 
-    .btn-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(253,180,78,0.4);
-    }
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    .cta-note {
-      font-size: 12px;
-      color: rgba(245,225,196,0.38);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 28px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(66,66,66,0.1);
-    }
-
-    .footer-brand {
-      font-family: 'Caprasimo', cursive;
-      font-size: 14px;
-      opacity: 0.35;
-    }
-
-    .footer-tagline {
-      font-size: 10px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      opacity: 0.28;
-    }
-
-    .footer-contact {
-      font-size: 12px;
-      opacity: 0.4;
-      text-align: right;
-      line-height: 1.7;
-    }
-
-    /* ── MOBILE ── */
+    /* MOBILE */
     @media (max-width: 768px) {
-      nav {
-        padding: 12px 20px;
-      }
-
+      nav { padding: 12px 20px; }
       .nav-links, .nav-btn { display: none; }
       .hamburger { display: flex; }
 
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-left {
-        padding: 36px 20px 24px;
-      }
-
-      h1 { font-size: 42px; }
-
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 36px 20px 24px; }
+      h1 { font-size: 40px; }
       .hero-sub { font-size: 14px; max-width: 100%; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+      .hero-right { height: 240px; }
 
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn-primary, .btn-ghost {
-        width: 100%;
-        text-align: center;
-        padding: 14px 20px;
-      }
-
-      .hero-right {
-        height: 220px;
-      }
-
-      .stats-bar {
-        grid-template-columns: 1fr;
-      }
-
-      .stat-item {
-        padding: 18px 20px;
-        border-right: none;
-        border-bottom: 1px solid rgba(66,66,66,0.1);
-      }
-
+      .stats-bar { grid-template-columns: 1fr; }
+      .stat-item { padding: 18px 20px; border-right: none; border-bottom: 1px solid rgba(66,66,66,0.1); }
       .stat-item:last-child { border-bottom: none; }
 
-      .programs-section {
-        padding: 48px 20px;
-      }
+      .programs-section, .philosophy-section, .values-section, .about-section, .mission-section { padding: 48px 20px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .phil-grid, .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
 
-      .programs-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .philosophy-section {
-        padding: 48px 20px;
-      }
-
-      .phil-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .about-section { padding: 48px 20px; }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
+      .mission-box { padding: 28px; }
+      .mission-text { font-size: 18px; }
 
       .cta-section { padding: 0 20px 48px; }
-
-      .cta-box {
-        flex-direction: column;
-        padding: 36px 28px;
-        gap: 28px;
-        align-items: flex-start;
-      }
-
-      .cta-right {
-        align-items: stretch;
-        width: 100%;
-      }
-
+      .cta-box { flex-direction: column; padding: 36px 28px; gap: 28px; align-items: flex-start; }
+      .cta-right { align-items: stretch; width: 100%; }
       .btn-cta { text-align: center; }
-
       .cta-note { text-align: center; }
 
-      footer {
-        padding: 20px;
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-      }
-
+      footer { padding: 24px 20px; flex-direction: column; gap: 10px; text-align: center; }
       .footer-contact { text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" id="menuClose">✕</button>
-  <a href="#programs" onclick="closeMobileMenu()">Программы</a>
-  <a href="#philosophy" onclick="closeMobileMenu()">Философия</a>
-  <a href="#about" onclick="closeMobileMenu()">О нас</a>
-  <a href="#cta" onclick="closeMobileMenu()">Записаться</a>
+  <button class="menu-close" id="menuClose">✕</button>
+  <a href="programs.html">Программы</a>
+  <a href="#philosophy" onclick="closeMenu()">Философия</a>
+  <a href="#about" onclick="closeMenu()">О нас</a>
+  <a href="#cta" onclick="closeMenu()">Записаться</a>
 </div>
 
-<!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">
     <div class="nav-logo">
@@ -741,18 +234,16 @@
         <source src="strogino_sail_logo.webm" type="video/webm">
       </video>
     </div>
-    <span class="nav-name">Strogino Sail</span>
+    <span class="nav-name">Парус Строгино</span>
   </a>
   <div class="nav-links">
-    <a href="#programs">Программы</a>
+    <a href="programs.html">Программы</a>
     <a href="#philosophy">Философия</a>
     <a href="#about">О нас</a>
     <a href="#cta">Контакты</a>
   </div>
   <button class="nav-btn" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Записаться →</button>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- HERO -->
@@ -762,71 +253,57 @@
       <div class="eyebrow-line"></div>
       <span>Строгино · МКС · Москва</span>
     </div>
-    <h1>Вода —<br>честная<em>среда</em></h1>
-    <div class="hero-tagline">water · sail · community</div>
-    <p class="hero-sub">Детский водный лагерь на базе МКС в Строгино. Парусный спорт, команда и развитие через практику — в месте с настоящей историей.</p>
+    <h1>Под парусом —<em>к силе характера</em></h1>
+    <div class="hero-tagline">свобода · парус · развитие</div>
+    <p class="hero-sub">Парусный спорт — это больше, чем спорт. Это свобода, характер и путь к настоящему развитию ребёнка. Продолжаем традиции, воспитываем новое поколение сильных и уверенных детей.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Записать ребёнка</button>
       <button class="btn-ghost" onclick="document.getElementById('programs').scrollIntoView({behavior:'smooth'})">Узнать больше</button>
     </div>
   </div>
   <div class="hero-right">
-    <svg viewBox="0 0 480 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="280" cy="230" r="180" fill="#FDB44E" opacity="0.14"/>
-      <circle cx="280" cy="230" r="148" fill="#FDB44E" opacity="0.14"/>
-      <circle cx="280" cy="230" r="118" fill="#FDB44E" opacity="0.2"/>
-      <line x1="238" y1="105" x2="250" y2="326" stroke="#FDB44E" stroke-width="9" opacity="0.12"/>
-      <line x1="268" y1="100" x2="278" y2="330" stroke="#FDB44E" stroke-width="7" opacity="0.1"/>
-      <line x1="300" y1="103" x2="292" y2="328" stroke="#FDB44E" stroke-width="10" opacity="0.1"/>
-      <line x1="332" y1="116" x2="318" y2="324" stroke="#FDB44E" stroke-width="8" opacity="0.09"/>
-      <!-- hull -->
-      <path d="M168 342 Q230 368 292 342 Q302 360 280 372 Q230 389 178 372 Q156 360 168 342Z"
-        fill="#FDB44E" opacity="0.38" stroke="#424242" stroke-width="2"/>
-      <!-- mast -->
-      <line x1="230" y1="204" x2="230" y2="348" stroke="#424242" stroke-width="2.5" stroke-linecap="round"/>
-      <!-- main sail -->
-      <path d="M230 208 L308 328 L230 328 Z" fill="#F5E1C4" stroke="#424242" stroke-width="2" stroke-linejoin="round"/>
-      <!-- jib -->
-      <path d="M230 242 L174 328 L230 328 Z" fill="rgba(66,66,66,0.07)" stroke="#424242" stroke-width="1.8" stroke-linejoin="round"/>
-      <!-- child head -->
-      <circle cx="204" cy="314" r="10" fill="#424242"/>
-      <!-- hair spikes -->
-      <line x1="199" y1="305" x2="196" y2="296" stroke="#424242" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="204" y1="304" x2="203" y2="295" stroke="#424242" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="209" y1="305" x2="211" y2="296" stroke="#424242" stroke-width="1.8" stroke-linecap="round"/>
-      <!-- body -->
-      <line x1="204" y1="324" x2="204" y2="344" stroke="#424242" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- arm to mast -->
-      <path d="M204 332 Q218 324 226 328" stroke="#424242" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <!-- other arm -->
-      <line x1="204" y1="332" x2="193" y2="338" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
-      <!-- waves -->
-      <path d="M40 406 Q88 382 138 406 Q188 430 238 406 Q288 382 338 406 Q382 426 420 406"
-        stroke="#424242" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-      <path d="M28 434 Q80 408 136 434 Q192 460 246 434 Q300 408 356 434 Q396 452 432 432"
-        stroke="#424242" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.42"/>
-      <path d="M48 458 Q100 436 158 458 Q212 478 268 457 Q318 438 370 458 Q406 471 436 457"
-        stroke="#424242" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.22"/>
-      <!-- water fill -->
-      <path d="M0 418 Q80 396 180 418 Q280 440 380 418 Q432 408 480 418 L480 560 L0 560Z"
-        fill="#FDB44E" opacity="0.1"/>
+    <svg viewBox="0 0 480 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="280" cy="240" r="185" fill="#FDB44E" opacity="0.13"/>
+      <circle cx="280" cy="240" r="152" fill="#FDB44E" opacity="0.13"/>
+      <circle cx="280" cy="240" r="120" fill="#FDB44E" opacity="0.2"/>
+      <line x1="238" y1="108" x2="250" y2="336" stroke="#FDB44E" stroke-width="9" opacity="0.11"/>
+      <line x1="268" y1="103" x2="278" y2="340" stroke="#FDB44E" stroke-width="7" opacity="0.09"/>
+      <line x1="300" y1="105" x2="292" y2="338" stroke="#FDB44E" stroke-width="10" opacity="0.09"/>
+      <line x1="332" y1="118" x2="318" y2="334" stroke="#FDB44E" stroke-width="8" opacity="0.08"/>
+      <path d="M0 426 Q80 404 180 426 Q280 448 380 426 Q432 416 480 426 L480 580 L0 580Z" fill="#FDB44E" opacity="0.1"/>
+      <g class="boat-group">
+        <path d="M168 352 Q230 378 292 352 Q302 370 280 382 Q230 399 178 382 Q156 370 168 352Z" fill="#FDB44E" opacity="0.38" stroke="#424242" stroke-width="2"/>
+        <line x1="230" y1="210" x2="230" y2="358" stroke="#424242" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M230 214 L308 338 L230 338 Z" fill="#F5E1C4" stroke="#424242" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M230 248 L174 338 L230 338 Z" fill="rgba(66,66,66,0.07)" stroke="#424242" stroke-width="1.8" stroke-linejoin="round"/>
+        <circle cx="204" cy="322" r="10" fill="#424242"/>
+        <line x1="199" y1="313" x2="196" y2="304" stroke="#424242" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="204" y1="312" x2="203" y2="303" stroke="#424242" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="209" y1="313" x2="211" y2="304" stroke="#424242" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="204" y1="332" x2="204" y2="352" stroke="#424242" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M204 340 Q218 332 226 336" stroke="#424242" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <line x1="204" y1="340" x2="193" y2="346" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <path class="wave-anim-1" d="M40 414 Q88 390 138 414 Q188 438 238 414 Q288 390 338 414 Q382 434 420 414" stroke="#424242" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path class="wave-anim-2" d="M28 442 Q80 416 136 442 Q192 468 246 442 Q300 416 356 442 Q396 460 432 440" stroke="#424242" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.42"/>
+      <path class="wave-anim-3" d="M48 466 Q100 444 158 466 Q212 486 268 465 Q318 446 370 466 Q406 479 436 465" stroke="#424242" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.22"/>
     </svg>
   </div>
 </section>
 
 <!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-num">3</div>
-    <div class="stat-label">Формата участия</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">Строгино</div>
-    <div class="stat-label">Водноспортивная база МКС</div>
-  </div>
+<div class="stats-bar reveal">
   <div class="stat-item">
     <div class="stat-num">Laser · Луч · Optimist</div>
     <div class="stat-label">Классы яхт в программе</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">Строгино, МКС</div>
+    <div class="stat-label">Водноспортивная база Москомспорта</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">Лето 2025</div>
+    <div class="stat-label">Набор открыт</div>
   </div>
 </div>
 
@@ -834,45 +311,37 @@
 <section class="programs-section" id="programs">
   <div class="section-label">Форматы участия</div>
   <h2 class="section-h2">Выберите программу</h2>
-  <div class="programs-grid">
-
+  <div class="programs-grid reveal">
     <div class="price-card">
-      <svg class="card-wave" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 30 Q37 10 75 30 Q112 50 150 30 Q187 10 225 30 Q262 50 300 30 L300 60 L0 60Z" fill="#424242"/>
-      </svg>
+      <svg class="card-wave" viewBox="0 0 300 60"><path d="M0 30 Q37 10 75 30 Q112 50 150 30 Q187 10 225 30 Q262 50 300 30 L300 60 L0 60Z" fill="#424242"/></svg>
       <div class="card-tag">Базовая</div>
-      <div class="card-name">Strogino Sail</div>
-      <div class="card-desc">Парус, SUP, игры и командная среда. Утром привёл — вечером забрал.</div>
+      <div class="card-name">Парус Строгино</div>
+      <div class="card-desc">Парус, SUP, игры и командная среда. Дети не просто отдыхают — они растут, развиваются и открывают мир парусного спорта. Утром привёл — вечером забрал.</div>
       <div class="price-rows">
         <div class="price-row"><span>День</span><strong>5 000 ₽</strong></div>
         <div class="price-row"><span>Неделя</span><strong>16 000 ₽</strong></div>
         <div class="price-row"><span>Месяц</span><strong>44 000 ₽</strong></div>
       </div>
     </div>
-
     <div class="price-card featured">
-      <svg class="card-wave" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 30 Q37 10 75 30 Q112 50 150 30 Q187 10 225 30 Q262 50 300 30 L300 60 L0 60Z" fill="#F5E1C4"/>
-      </svg>
+      <svg class="card-wave" viewBox="0 0 300 60"><path d="M0 30 Q37 10 75 30 Q112 50 150 30 Q187 10 225 30 Q262 50 300 30 L300 60 L0 60Z" fill="#F5E1C4"/></svg>
       <div class="card-tag">Углублённая</div>
-      <div class="card-name">Strogino Sail Pro</div>
-      <div class="card-desc">Мини-группы, больше времени на воде, индивидуальная работа и обратная связь родителям.</div>
+      <div class="card-name">Парус Строгино Pro</div>
+      <div class="card-desc">Мини-группы, больше времени на воде, индивидуальная работа с тренером. Включает обратную связь родителям — наблюдения, рекомендации, развитие.</div>
       <div class="price-rows">
         <div class="price-row"><span>День</span><strong>8 500 ₽</strong></div>
         <div class="price-row"><span>Неделя</span><strong>32 000 ₽</strong></div>
         <div class="price-row"><span>Месяц</span><strong>75 000 ₽</strong></div>
       </div>
     </div>
-
     <div class="price-card">
       <div class="card-tag">Взрослые</div>
       <div class="card-name">Для взрослых</div>
-      <div class="card-desc">Парусная подготовка, SUP и сезонные программы для взрослых участников.</div>
+      <div class="card-desc">Парусная подготовка, SUP и сезонные программы. Почувствуйте воду и ветер — в месте с настоящей историей.</div>
       <div class="price-rows">
         <div class="price-row"><span>Условия</span><strong>По запросу →</strong></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -880,79 +349,123 @@
 <section class="philosophy-section" id="philosophy">
   <div class="section-label">Наш подход</div>
   <h2 class="section-h2">Философия лагеря</h2>
-  <div class="phil-grid">
+  <div class="phil-grid reveal">
     <div class="phil-quote-block">
       <div class="phil-quote">«На воде невозможно спрятаться — всё проявляется в действии»</div>
       <div class="phil-author">— Олег Метельский, тренер и основатель</div>
     </div>
     <ul class="phil-list">
-      <li class="phil-item"><div class="phil-dot"></div><span>Тренер — связующее звено между ребёнком и родителем. Он наблюдает и помогает увидеть ребёнка в реальном, живом процессе.</span></li>
-      <li class="phil-item"><div class="phil-dot"></div><span>Работаем в логике наблюдения и раскрытия, а не навязывания направления.</span></li>
-      <li class="phil-item"><div class="phil-dot"></div><span>Вода честно показывает человека — там невозможно спрятаться за словами или привычными моделями поведения.</span></li>
-      <li class="phil-item"><div class="phil-dot"></div><span>Обратная связь родителям по итогам каждого периода — наблюдения, рекомендации, развитие.</span></li>
+      <li class="phil-item"><div class="phil-dot"></div><span>Тренер — связующее звено между ребёнком и родителем. Он наблюдает и помогает увидеть ребёнка в живом, реальном процессе.</span></li>
+      <li class="phil-item"><div class="phil-dot"></div><span>Работаем в логике наблюдения и раскрытия, а не навязывания. Дети учатся принимать решения, работать вместе и быть ответственными.</span></li>
+      <li class="phil-item"><div class="phil-dot"></div><span>Вода честно показывает человека — там невозможно спрятаться за словами. Парусный спорт воспитывает характер, дисциплину и уверенность в себе.</span></li>
+      <li class="phil-item"><div class="phil-dot"></div><span>Обратная связь родителям по итогам каждого периода — наблюдения, рекомендации и индивидуальный путь развития ребёнка.</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="section-label">Что мы строим</div>
+  <h2 class="section-h2">Наши ценности</h2>
+  <div class="values-grid reveal">
+    <div class="value-card">
+      <div class="value-icon">⛵</div>
+      <div class="value-name">Развитие личности</div>
+      <div class="value-desc">Каждый ребёнок раскрывает свой потенциал через практику и живое взаимодействие.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🌊</div>
+      <div class="value-name">Свобода и ответственность</div>
+      <div class="value-desc">Вода учит принимать решения и нести за них ответственность — честно и в реальном времени.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <div class="value-name">Командный дух</div>
+      <div class="value-desc">Настоящая команда формируется не в классе, а в движении — на воде, в ветер, вместе.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🏆</div>
+      <div class="value-name">Спортивные традиции</div>
+      <div class="value-desc">Десятилетия опыта, передающегося из поколения в поколение. Школа чемпионов.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">💛</div>
+      <div class="value-name">Уважение и поддержка</div>
+      <div class="value-desc">Каждый ребёнок чувствует себя частью большого и сильного сообщества.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🧭</div>
+      <div class="value-name">Любовь к морю и парусу</div>
+      <div class="value-desc">Парус, который учит побеждать. Эмоции, которые остаются с детьми на всю жизнь.</div>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="section-label">История</div>
-  <h2 class="section-h2">Место с историей</h2>
-  <div class="about-grid">
+  <h2 class="section-h2">Дело жизни, которое передаётся</h2>
+  <div class="about-grid reveal">
     <div class="about-text">
-      <p>Это место для нас не просто база и не просто территория для тренировок. Здесь выросло целое поколение — мы проводили здесь лето, тренировались, общались, жили одной средой.</p>
-      <p>Здесь всю жизнь работала Светлана Николаевна — человек, который занимался парусным спортом и детьми. Она не просто обучала технике. Она воспитывала через воду, через команду, через совместную жизнь на базе.</p>
-      <p>Сейчас Олег Метельский, её воспитанник и внук, продолжает это дело — не как новый проект, а как продолжение того, что уже было создано и работало десятилетиями.</p>
+      <p>Светлана Николаевна посвятила жизнь детям и парусному спорту. Чемпионка СССР, тренер и человек, искренне влюблённый в море — она воспитала не одно поколение. Для нас, кто здесь вырос, она была не просто наставником. Она показала: яхта — это школа характера, дисциплины и настоящей уверенности в себе.</p>
+      <p>Я вырос на этой базе. Начинал как ребёнок, продолжал как спортсмен, теперь — как тренер. Это дело не закончилось — оно передаётся. Я стараюсь сохранить то, что получил сам: традиции, опыт и главное — любовь к детям и воде.</p>
+      <p>Для меня парус — это не только спорт. Это развитие личности, ответственность, команда, умение преодолевать трудности. Я хочу, чтобы здесь дети росли сильными, самостоятельными и уверенными — и уносили это с собой на всю жизнь.</p>
     </div>
     <div class="trainer-card">
       <div class="trainer-avatar">ОМ</div>
       <div class="trainer-name">Олег Метельский</div>
       <div class="trainer-role">Тренер · Основатель</div>
-      <div class="trainer-desc">Воспитанник базы МКС Строгино. Продолжает дело, которое начала его бабушка Светлана Николаевна. Работает с детьми через наблюдение, команду и живую практику на воде.</div>
+      <div class="trainer-desc">Я вырос здесь, на базе МКС в Строгино. Знаю этот путь изнутри — прошёл его сам от начала до конца. Теперь веду детей и стараюсь передать то, что получил: любовь к воде, к команде и к движению вперёд.</div>
+      <div class="trainer-legacy">
+        <div class="trainer-legacy-label">Преемственность</div>
+        <div class="trainer-legacy-text">«Многие из нас здесь выросли. Это было не "занятие на лето". Это была жизнь в движении — и она продолжается.»</div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="section-label">Миссия</div>
+  <h2 class="section-h2">Зачем мы это делаем</h2>
+  <div class="mission-box reveal">
+    <div class="mission-text">Через парусный спорт помогать детям раскрывать свой потенциал, воспитывать характер, уверенность в себе и любовь к движению вперёд.</div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-section" id="cta">
-  <div class="cta-box">
-    <svg class="cta-waves" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="cta-box reveal">
+    <svg class="cta-waves" viewBox="0 0 300 200" fill="none">
       <path d="M0 50 Q37 30 75 50 Q112 70 150 50 Q187 30 225 50 Q262 70 300 50" stroke="#F5E1C4" stroke-width="2" fill="none"/>
       <path d="M0 90 Q37 70 75 90 Q112 110 150 90 Q187 70 225 90 Q262 110 300 90" stroke="#F5E1C4" stroke-width="1.5" fill="none"/>
       <path d="M0 130 Q37 110 75 130 Q112 150 150 130 Q187 110 225 130 Q262 150 300 130" stroke="#F5E1C4" stroke-width="1" fill="none"/>
     </svg>
-    <h2 class="cta-h">Запишите ребёнка в <span>Strogino Sail</span> этим летом</h2>
+    <h2 class="cta-h">Запишите ребёнка в <span>Парус Строгино</span> этим летом</h2>
     <div class="cta-right">
-      <button class="btn-cta">Оставить заявку →</button>
-      <div class="cta-note">Строгино · МКС · Олег Метельский</div>
+      <a href="https://t.me/Oleg_Metelskiy" target="_blank" class="btn-cta">Написать Олегу →</a>
+      <a href="https://t.me/Stroginokids" target="_blank" class="cta-channel">Канал @Stroginokids</a>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Strogino Sail</div>
-  <div class="footer-tagline">water · sail · community</div>
-  <div class="footer-contact">Москва, Строгино<br>Водноспортивная база МКС</div>
+  <div class="footer-brand">Парус Строгино</div>
+  <div class="footer-tagline">свобода · парус · развитие</div>
+  <div class="footer-contact">Москва, Строгино · Водноспортивная база МКС<br><a href="https://t.me/Oleg_Metelskiy" target="_blank">@Oleg_Metelskiy</a> · <a href="https://t.me/Stroginokids" target="_blank">Канал @Stroginokids</a></div>
 </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuClose = document.getElementById('menuClose');
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+  document.getElementById('menuClose').addEventListener('click', closeMenu);
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-  });
-
-  menuClose.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-  });
-
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-  }
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
-
 </body>
 </html>
