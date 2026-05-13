@@ -21,6 +21,7 @@
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--slate); overflow-x: hidden; }
+    :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
 
     /* NAV */
     nav {
@@ -40,7 +41,7 @@
     .nav-links a:hover { opacity: 1; }
     .nav-btn { background: var(--slate); color: var(--bg); border: none; border-radius: 100px; padding: 10px 22px; font-size: 13px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; transition: opacity 0.2s; }
     .nav-btn:hover { opacity: 0.8; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; background: none; border: none; }
     .hamburger span { width: 22px; height: 1.5px; background: var(--slate); border-radius: 2px; }
 
     /* MOBILE MENU */
@@ -62,13 +63,14 @@
     .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; align-items: center; }
     .hero-left { padding: 80px 48px; display: flex; flex-direction: column; justify-content: center; }
     .hero-photo { padding: 40px 48px 40px 0; }
-    .hero-photo-inner { width: 100%; height: 440px; border-radius: var(--radius); }
+    .hero-photo-inner { width: 100%; height: 440px; border-radius: var(--radius); overflow: hidden; }
+    .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
     .eyebrow-line { width: 24px; height: 1.5px; background: var(--amber); }
     .eyebrow span { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); font-weight: 500; }
     h1 { font-family: 'Caprasimo', cursive; font-size: 56px; line-height: 1.05; margin-bottom: 10px; }
     h1 em { color: var(--amber); font-style: normal; display: block; }
-    .hero-tagline { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; opacity: 0.32; margin-bottom: 20px; }
+    .hero-tagline { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; opacity: 0.48; margin-bottom: 20px; }
     .hero-sub { font-size: 16px; line-height: 1.85; opacity: 0.65; margin-bottom: 36px; max-width: 400px; }
     .hero-sub em { font-style: italic; opacity: 0.9; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -82,7 +84,7 @@
     .stat-item { padding: 28px 48px; border-right: 1px solid rgba(66,66,66,0.1); }
     .stat-item:last-child { border-right: none; }
     .stat-num { font-family: 'Caprasimo', cursive; font-size: 24px; line-height: 1; margin-bottom: 4px; }
-    .stat-label { font-size: 12px; opacity: 0.42; }
+    .stat-label { font-size: 12px; opacity: 0.55; }
 
     /* SECTIONS */
     .section-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); font-weight: 500; margin-bottom: 10px; }
@@ -90,7 +92,7 @@
 
     /* PROGRAMS */
     .programs-section { padding: 72px 48px; }
-    .programs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .programs-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
     .price-card { border: 1.5px solid rgba(66,66,66,0.12); border-radius: var(--radius); padding: 28px; background: rgba(255,255,255,0.38); position: relative; overflow: hidden; transition: transform 0.2s; }
     .price-card:hover { transform: translateY(-3px); }
     .price-card.featured { background: var(--slate); border-color: var(--slate); }
@@ -110,7 +112,7 @@
     /* PHILOSOPHY */
     .philosophy-section { padding: 72px 48px; background: rgba(66,66,66,0.03); border-top: 1px solid rgba(66,66,66,0.08); }
     .phil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 32px; }
-    .phil-quote-block { padding-left: 22px; border-left: 3px solid var(--amber); }
+    .phil-quote-block { background: rgba(253,180,78,0.1); border-radius: 14px; padding: 24px 28px; }
     .phil-quote { font-family: 'Caprasimo', cursive; font-size: 22px; line-height: 1.5; margin-bottom: 14px; }
     .phil-author { font-size: 11px; opacity: 0.38; letter-spacing: 1px; text-transform: uppercase; }
     .phil-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
@@ -131,7 +133,6 @@
     .about-text p { font-size: 15px; line-height: 1.9; opacity: 0.65; margin-bottom: 18px; }
     .about-text p:last-child { margin-bottom: 0; }
     .trainer-card { background: rgba(255,255,255,0.4); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 32px; }
-    .trainer-avatar { width: 60px; height: 60px; background: rgba(253,180,78,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Caprasimo', cursive; font-size: 20px; color: var(--amber); margin-bottom: 18px; }
     .trainer-name { font-family: 'Caprasimo', cursive; font-size: 22px; margin-bottom: 4px; }
     .trainer-role { font-size: 11px; opacity: 0.4; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
     .trainer-desc { font-size: 13px; line-height: 1.8; opacity: 0.62; }
@@ -223,6 +224,17 @@
       footer { padding: 24px 20px; flex-direction: column; gap: 10px; text-align: center; }
       .footer-contact { text-align: center; }
     }
+
+    @media (max-width: 390px) {
+      h1 { font-size: 34px; }
+      .hero-sub { font-size: 13px; }
+      .section-h2 { font-size: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: none; opacity: 1; transform: none; }
+      .mobile-menu { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -260,7 +272,7 @@
     <a href="#cta">Контакты</a>
   </div>
   <button class="nav-btn" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Записаться →</button>
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -314,32 +326,24 @@
   <div class="programs-grid reveal">
     <div class="price-card">
       <svg class="card-wave" viewBox="0 0 300 60"><path d="M0 30 Q37 10 75 30 Q112 50 150 30 Q187 10 225 30 Q262 50 300 30 L300 60 L0 60Z" fill="#424242"/></svg>
-      <div class="card-tag">Базовая</div>
+      <div class="card-tag">Стандарт</div>
       <div class="card-name">Парус Строгино</div>
       <div class="card-desc">Парус, SUP, игры и командная среда. Дети не просто отдыхают — они растут, развиваются и открывают мир парусного спорта. Утром привёл — вечером забрал.</div>
       <div class="price-rows">
-        <div class="price-row"><span>День</span><strong>5 000 ₽</strong></div>
-        <div class="price-row"><span>Неделя</span><strong>16 000 ₽</strong></div>
-        <div class="price-row"><span>Месяц</span><strong>44 000 ₽</strong></div>
+        <div class="price-row"><span>☀️ Разовое посещение</span><strong>5 000 ₽</strong></div>
+        <div class="price-row"><span>🌊 Неделя</span><strong>16 000 ₽</strong></div>
+        <div class="price-row"><span>⛵ Месяц</span><strong>44 000 ₽</strong></div>
       </div>
     </div>
     <div class="price-card featured">
       <svg class="card-wave" viewBox="0 0 300 60"><path d="M0 30 Q37 10 75 30 Q112 50 150 30 Q187 10 225 30 Q262 50 300 30 L300 60 L0 60Z" fill="#F5E1C4"/></svg>
       <div class="card-tag">Углублённая</div>
-      <div class="card-name">Парус Строгино Pro</div>
-      <div class="card-desc">Мини-группы, больше времени на воде, индивидуальная работа с тренером. Включает обратную связь родителям — наблюдения, рекомендации, развитие.</div>
+      <div class="card-name">Strogino Sail</div>
+      <div class="card-desc">Мини-группы, больше времени на воде, индивидуальная работа. Развиваем самостоятельность, мышление и реакцию — с обратной связью родителям.</div>
       <div class="price-rows">
-        <div class="price-row"><span>День</span><strong>8 500 ₽</strong></div>
-        <div class="price-row"><span>Неделя</span><strong>32 000 ₽</strong></div>
-        <div class="price-row"><span>Месяц</span><strong>75 000 ₽</strong></div>
-      </div>
-    </div>
-    <div class="price-card">
-      <div class="card-tag">Взрослые</div>
-      <div class="card-name">Для взрослых</div>
-      <div class="card-desc">Парусная подготовка, SUP и сезонные программы. Почувствуйте воду и ветер — в месте с настоящей историей.</div>
-      <div class="price-rows">
-        <div class="price-row"><span>Условия</span><strong>По запросу →</strong></div>
+        <div class="price-row"><span>☀️ День</span><strong>8 500 ₽</strong></div>
+        <div class="price-row"><span>🌊 Неделя</span><strong>32 000 ₽</strong></div>
+        <div class="price-row"><span>⛵ Месяц</span><strong>75 000 ₽</strong></div>
       </div>
     </div>
   </div>
@@ -472,15 +476,19 @@
 </footer>
 
 <script>
-  document.getElementById('hamburger').addEventListener('click', () => {
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
     document.getElementById('mobileMenu').classList.add('open');
     document.getElementById('mobileOverlay').classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
   });
   document.getElementById('menuClose').addEventListener('click', closeMenu);
   document.getElementById('mobileOverlay').addEventListener('click', closeMenu);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
     document.getElementById('mobileOverlay').classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   }
 
   const revealObserver = new IntersectionObserver((entries) => {
