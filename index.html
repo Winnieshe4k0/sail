@@ -55,8 +55,11 @@
     .menu-close { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; opacity: 0.4; background: none; border: none; color: var(--slate); }
 
     /* HERO */
-    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
-    .hero-left { padding: 64px 48px 56px; display: flex; flex-direction: column; justify-content: center; }
+    .hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg) 42%, rgba(245,225,196,0.72) 65%, transparent 90%); z-index: 1; pointer-events: none; }
+    .hero-left { position: relative; z-index: 2; padding: 80px 48px; max-width: 580px; display: flex; flex-direction: column; justify-content: center; }
+    .hero-svg-bg { position: absolute; right: -60px; top: -8%; height: 118%; width: 58%; pointer-events: none; z-index: 0; }
+    .hero-svg-bg svg { width: 100%; height: 100%; }
     .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
     .eyebrow-line { width: 24px; height: 1.5px; background: var(--amber); }
     .eyebrow span { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); font-weight: 500; }
@@ -70,8 +73,6 @@
     .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(253,180,78,0.4); }
     .btn-ghost { background: transparent; color: var(--slate); border: 1.5px solid rgba(66,66,66,0.25); border-radius: 100px; padding: 13px 26px; font-size: 13px; font-family: 'DM Sans', sans-serif; cursor: pointer; opacity: 0.65; transition: opacity 0.2s; }
     .btn-ghost:hover { opacity: 1; }
-    .hero-right { background: rgba(253,180,78,0.07); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .hero-right svg { width: 100%; height: 100%; }
 
     /* STATS */
     .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(66,66,66,0.1); border-bottom: 1px solid rgba(66,66,66,0.1); }
@@ -180,19 +181,30 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    /* PHOTO PLACEHOLDERS */
+    .photo-placeholder { background: rgba(253,180,78,0.07); border: 1.5px dashed rgba(66,66,66,0.16); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+    .photo-placeholder span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(66,66,66,0.28); font-weight: 500; }
+    .trainer-photo { width: 100%; height: 210px; margin-bottom: 20px; border-radius: 14px; overflow: hidden; }
+    .trainer-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+    .legacy-photo-row { display: flex; gap: 14px; align-items: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(66,66,66,0.08); }
+    .legacy-photo { height: 80px; flex: 0 0 80px; border-radius: 10px; }
+    .legacy-photo-name { font-family: 'Caprasimo', cursive; font-size: 14px; margin-bottom: 4px; opacity: 0.65; }
+    .legacy-photo-info { font-size: 12px; opacity: 0.4; line-height: 1.65; }
+
     /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 12px 20px; }
       .nav-links, .nav-btn { display: none; }
       .hamburger { display: flex; }
 
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 36px 20px 24px; }
+      .hero { min-height: auto; }
+      .hero-left { padding: 48px 20px 60px; max-width: 100%; }
+      .hero-svg-bg { right: -40px; top: auto; bottom: 0; height: 62%; width: 88%; opacity: 0.18; }
+      .hero::before { background: linear-gradient(180deg, var(--bg) 28%, rgba(245,225,196,0.82) 58%, transparent 100%); }
       h1 { font-size: 40px; }
       .hero-sub { font-size: 14px; max-width: 100%; }
       .hero-actions { flex-direction: column; }
       .btn-primary, .btn-ghost { width: 100%; text-align: center; }
-      .hero-right { height: 240px; }
 
       .stats-bar { grid-template-columns: 1fr; }
       .stat-item { padding: 18px 20px; border-right: none; border-bottom: 1px solid rgba(66,66,66,0.1); }
@@ -261,7 +273,7 @@
       <button class="btn-ghost" onclick="document.getElementById('programs').scrollIntoView({behavior:'smooth'})">Узнать больше</button>
     </div>
   </div>
-  <div class="hero-right">
+  <div class="hero-svg-bg">
     <svg viewBox="0 0 480 580" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="280" cy="240" r="185" fill="#FDB44E" opacity="0.13"/>
       <circle cx="280" cy="240" r="152" fill="#FDB44E" opacity="0.13"/>
@@ -290,6 +302,7 @@
     </svg>
   </div>
 </section>
+
 
 <!-- STATS -->
 <div class="stats-bar reveal">
@@ -410,9 +423,21 @@
       <p>Светлана Николаевна посвятила жизнь детям и парусному спорту. Чемпионка СССР, тренер и человек, искренне влюблённый в море — она воспитала не одно поколение. Для нас, кто здесь вырос, она была не просто наставником. Она показала: яхта — это школа характера, дисциплины и настоящей уверенности в себе.</p>
       <p>Я вырос на этой базе. Начинал как ребёнок, продолжал как спортсмен, теперь — как тренер. Это дело не закончилось — оно передаётся. Я стараюсь сохранить то, что получил сам: традиции, опыт и главное — любовь к детям и воде.</p>
       <p>Для меня парус — это не только спорт. Это развитие личности, ответственность, команда, умение преодолевать трудности. Я хочу, чтобы здесь дети росли сильными, самостоятельными и уверенными — и уносили это с собой на всю жизнь.</p>
+      <div class="legacy-photo-row">
+        <div class="legacy-photo photo-placeholder">
+          <!-- Заменить на: <img src="photo_svetlana.jpg" alt="Светлана Николаевна"> -->
+        </div>
+        <div>
+          <div class="legacy-photo-name">Светлана Николаевна</div>
+          <div class="legacy-photo-info">Тренер · Чемпионка СССР<br>Основатель школы</div>
+        </div>
+      </div>
     </div>
     <div class="trainer-card">
-      <div class="trainer-avatar">ОМ</div>
+      <div class="trainer-photo photo-placeholder">
+        <!-- Заменить на: <img src="photo_oleg.jpg" alt="Олег Метельский"> -->
+        <span>Фото Олега</span>
+      </div>
       <div class="trainer-name">Олег Метельский</div>
       <div class="trainer-role">Тренер · Основатель</div>
       <div class="trainer-desc">Я вырос здесь, на базе МКС в Строгино. Знаю этот путь изнутри — прошёл его сам от начала до конца. Теперь веду детей и стараюсь передать то, что получил: любовь к воде, к команде и к движению вперёд.</div>
