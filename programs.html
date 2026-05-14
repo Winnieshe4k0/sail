@@ -243,6 +243,14 @@
     .boat-dot { width: 5px; height: 5px; background: var(--amber); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
     .boat-note { padding-top: 20px; border-top: 1px solid rgba(66,66,66,0.08); font-size: 13px; opacity: 0.48; font-style: italic; line-height: 1.7; }
 
+    /* ACCORDION (mobile only) */
+    .acc-chevron { display: none; transition: transform 0.25s ease; flex-shrink: 0; }
+
+    /* BOAT HEADER (always, layout only) */
+    .boat-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .boat-header-text { flex: 1; }
+    .boat-body { margin-top: 16px; }
+
     @media (max-width: 768px) {
       nav { padding: 12px 20px; }
       .nav-links, .nav-btn { display: none; }
@@ -255,9 +263,25 @@
       .compare-section, .boats-section, .day-section, .schedule-section, .partners-section { padding: 48px 20px; }
       .partner-card { grid-template-columns: 1fr; gap: 24px; }
       .partner-logo { width: 100%; height: 90px; }
-      .boats-grid { grid-template-columns: 1fr; }
 
-      .programs-grid { grid-template-columns: 1fr; }
+      /* CAROUSEL — programs */
+      .programs-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; margin: 0 -20px; padding: 4px 20px 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; align-items: start; }
+      .programs-grid::-webkit-scrollbar { display: none; }
+      .program-card { flex: 0 0 84vw; scroll-snap-align: start; min-width: 0; }
+
+      /* CAROUSEL — boats */
+      .boats-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; margin: 0 -20px; padding: 4px 20px 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; align-items: start; }
+      .boats-grid::-webkit-scrollbar { display: none; }
+      .boat-card { flex: 0 0 84vw; scroll-snap-align: start; min-width: 0; }
+
+      /* ACCORDION */
+      .acc-chevron { display: block; }
+      .prog-includes-label { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+      .prog-includes.acc-closed .prog-feature { display: none; }
+      .prog-includes.acc-closed .acc-chevron { transform: rotate(-90deg); }
+      .boat-header { cursor: pointer; user-select: none; }
+      .boat-card.acc-closed .boat-body { display: none; }
+      .boat-card.acc-closed .acc-chevron { transform: rotate(-90deg); }
 
       .day-tabs { flex-wrap: wrap; }
 
@@ -386,7 +410,7 @@
       </div>
       <div class="prog-body">
         <div class="prog-includes">
-          <div class="prog-includes-label">Что входит</div>
+          <div class="prog-includes-label">Что входит<svg class="acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Парусный спорт на яхтах Оптимист и Луч</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Занятия сапсёрфингом</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Командные игры и квесты</span></div>
@@ -395,7 +419,7 @@
           <div class="prog-feature"><div class="feat-dot"></div><span>Живая спортивная среда и атмосфера лагеря</span></div>
         </div>
         <div class="prog-includes">
-          <div class="prog-includes-label">Кому подойдёт</div>
+          <div class="prog-includes-label">Кому подойдёт<svg class="acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Пробует парусный спорт впервые</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Любит активный отдых на воде и команду</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Ищет новых друзей и живую атмосферу</span></div>
@@ -418,14 +442,14 @@
       </div>
       <div class="prog-body">
         <div class="prog-includes">
-          <div class="prog-includes-label">Развиваем</div>
+          <div class="prog-includes-label">Развиваем<svg class="acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Самостоятельность и принятие решений</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Мышление и реакцию в стрессовых ситуациях</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Взаимодействие в команде</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Индивидуальное развитие каждого ребёнка</span></div>
         </div>
         <div class="prog-includes">
-          <div class="prog-includes-label">Включает</div>
+          <div class="prog-includes-label">Включает<svg class="acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Мини-группы — больше внимания каждому</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Больше времени на воде</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Индивидуальная работа с тренером</span></div>
@@ -433,7 +457,7 @@
           <div class="prog-feature"><div class="feat-dot"></div><span>Сопровождение и рекомендации по развитию</span></div>
         </div>
         <div class="prog-includes">
-          <div class="prog-includes-label">Кому подойдёт</div>
+          <div class="prog-includes-label">Кому подойдёт<svg class="acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Есть опыт в парусе или хочет серьёзного развития</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Нужна индивидуальная работа с тренером</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Готов к интенсивной и осознанной работе</span></div>
@@ -457,28 +481,42 @@
   <h2 class="section-h2">Лодки в программе</h2>
   <div class="boats-grid">
     <div class="boat-card">
-      <div class="boat-name">Оптимист</div>
-      <div class="boat-sub">Начальный класс · 7–15 лет</div>
-      <p class="boat-desc">На тренировках и в лагере дети начинают на «Оптимисте» — основной детской спортивной яхте, с которой начинается путь практически каждого яхтсмена в мире. Несмотря на компактный размер, это полноценная спортивная лодка: на ней проводят тренировки, соревнования и большие детские регаты.</p>
-      <div class="boat-learns">
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Чувствовать ветер и понимать воду</span></div>
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Работать с парусом и вязать узлы</span></div>
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Управлять лодкой самостоятельно</span></div>
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Принимать первые решения на воде</span></div>
+      <div class="boat-header">
+        <div class="boat-header-text">
+          <div class="boat-name">Оптимист</div>
+          <div class="boat-sub">Начальный класс · 7–15 лет</div>
+        </div>
+        <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      <div class="boat-note">Безопасный, понятный — и очень хорошо развивает самостоятельность, внимание и уверенность. С этой лодки начинается настоящая любовь к парусному спорту.</div>
+      <div class="boat-body">
+        <p class="boat-desc">На тренировках и в лагере дети начинают на «Оптимисте» — основной детской спортивной яхте, с которой начинается путь практически каждого яхтсмена в мире. Несмотря на компактный размер, это полноценная спортивная лодка: на ней проводят тренировки, соревнования и большие детские регаты.</p>
+        <div class="boat-learns">
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Чувствовать ветер и понимать воду</span></div>
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Работать с парусом и вязать узлы</span></div>
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Управлять лодкой самостоятельно</span></div>
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Принимать первые решения на воде</span></div>
+        </div>
+        <div class="boat-note">Безопасный, понятный — и очень хорошо развивает самостоятельность, внимание и уверенность. С этой лодки начинается настоящая любовь к парусному спорту.</div>
+      </div>
     </div>
     <div class="boat-card">
-      <div class="boat-name">Луч</div>
-      <div class="boat-sub">Laser 4.7 · Radial · Standard</div>
-      <p class="boat-desc">Следующий шаг после «Оптимиста» — лодка класса «Луч» (Laser). Более взрослая и динамичная. Мы постепенно знакомим ребят с этим классом, чтобы они чувствовали переход и были готовы к следующему этапу. «Луч» используют как подростки, так и взрослые спортсмены — на тренировках и серьёзных соревнованиях по всему миру.</p>
-      <div class="boat-learns">
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Управление на высокой скорости</span></div>
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Активная работа корпусом</span></div>
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Гоночная тактика и принятие решений</span></div>
-        <div class="boat-learn-item"><div class="boat-dot"></div><span>Понимание настоящего яхтинга</span></div>
+      <div class="boat-header">
+        <div class="boat-header-text">
+          <div class="boat-name">Луч</div>
+          <div class="boat-sub">Laser 4.7 · Radial · Standard</div>
+        </div>
+        <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
-      <div class="boat-note">Класс делится на Laser 4.7, Radial и Standard — разная площадь паруса под разный возраст и уровень подготовки. Важный следующий шаг для тех, кто готов к большому парусному спорту.</div>
+      <div class="boat-body">
+        <p class="boat-desc">Следующий шаг после «Оптимиста» — лодка класса «Луч» (Laser). Более взрослая и динамичная. Мы постепенно знакомим ребят с этим классом, чтобы они чувствовали переход и были готовы к следующему этапу. «Луч» используют как подростки, так и взрослые спортсмены — на тренировках и серьёзных соревнованиях по всему миру.</p>
+        <div class="boat-learns">
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Управление на высокой скорости</span></div>
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Активная работа корпусом</span></div>
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Гоночная тактика и принятие решений</span></div>
+          <div class="boat-learn-item"><div class="boat-dot"></div><span>Понимание настоящего яхтинга</span></div>
+        </div>
+        <div class="boat-note">Класс делится на Laser 4.7, Radial и Standard — разная площадь паруса под разный возраст и уровень подготовки. Важный следующий шаг для тех, кто готов к большому парусному спорту.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -959,6 +997,27 @@
   });
 
   renderSchedule();
+
+  // ── MOBILE ACCORDION ──────────────────────────────────────────
+  if (window.innerWidth <= 768) {
+    // prog-includes: click label to toggle
+    document.querySelectorAll('.prog-includes').forEach(block => {
+      block.classList.add('acc-closed');
+      const label = block.querySelector('.prog-includes-label');
+      if (label) label.addEventListener('click', () => block.classList.toggle('acc-closed'));
+    });
+
+    // boat cards: click header to toggle
+    document.querySelectorAll('.boat-card').forEach(card => {
+      card.classList.add('acc-closed');
+      card.querySelector('.boat-body').classList.add('acc-closed');
+      const header = card.querySelector('.boat-header');
+      if (header) header.addEventListener('click', () => {
+        card.classList.toggle('acc-closed');
+        card.querySelector('.boat-body').classList.toggle('acc-closed');
+      });
+    });
+  }
 </script>
 </body>
 </html>
