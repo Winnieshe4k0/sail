@@ -190,16 +190,16 @@
     .legacy-photo-info { font-size: 12px; opacity: 0.4; line-height: 1.65; }
 
     /* PARTNERS */
+    @keyframes partner-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
     .partners-section { padding: 72px 48px; border-top: 1px solid rgba(66,66,66,0.08); }
-    .partner-card { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center; background: rgba(255,255,255,0.38); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 40px; margin-top: 32px; }
-    .partner-logo { width: 200px; height: 110px; border-radius: 12px; overflow: hidden; background: rgba(253,180,78,0.07); border: 1.5px dashed rgba(66,66,66,0.16); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .partner-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .partner-logo-placeholder { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(66,66,66,0.28); font-weight: 500; }
-    .partner-name { font-family: 'Caprasimo', cursive; font-size: 22px; margin-bottom: 14px; }
+    .partner-card { display: grid; grid-template-columns: 160px 1fr; gap: 36px; align-items: center; background: rgba(255,255,255,0.38); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 28px 36px; margin-top: 32px; }
+    .partner-logo { width: 160px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .partner-logo img { width: 100%; height: auto; object-fit: contain; display: block; animation: partner-float 4s ease-in-out infinite; }
     .partner-text { font-size: 14px; line-height: 1.85; opacity: 0.65; margin-bottom: 10px; }
-    .partner-desire { opacity: 0.9; font-weight: 500; margin-bottom: 22px; }
+    .partner-desire { opacity: 0.9; font-weight: 500; margin-bottom: 20px; }
     .btn-partner { display: inline-flex; align-items: center; gap: 6px; background: #d41c1e; color: #fff; text-decoration: none; border-radius: 100px; padding: 12px 28px; font-size: 14px; font-family: 'DM Sans', sans-serif; font-weight: 500; transition: transform 0.15s, box-shadow 0.15s; }
     .btn-partner:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,28,30,0.35); }
+    @media (prefers-reduced-motion: reduce) { .partner-logo img { animation: none; } }
 
     /* MOBILE */
     @media (max-width: 768px) {
@@ -219,8 +219,8 @@
       .stat-item { padding: 16px 20px; }
 
       .programs-section, .philosophy-section, .values-section, .about-section, .mission-section, .partners-section { padding: 48px 20px; }
-      .partner-card { grid-template-columns: 1fr; gap: 24px; }
-      .partner-logo { width: 100%; height: 90px; }
+      .partner-card { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .partner-logo { width: 140px; margin: 0 auto; }
       .programs-grid { grid-template-columns: 1fr; }
       .phil-grid, .about-grid { grid-template-columns: 1fr; gap: 32px; }
       .values-grid { grid-template-columns: 1fr; gap: 10px; }
@@ -464,7 +464,6 @@
       <span class="partner-logo-placeholder" style="display:none">part-1</span>
     </div>
     <div class="partner-content">
-      <div class="partner-name">Свой Сап</div>
       <p class="partner-text">Если вы полюбили воду — останавливаться не нужно. Мы находимся на базе клуба «Свой Сап».</p>
       <p class="partner-text">Отличный способ продолжить сезон всей семьёй — в выходные, вечером или просто когда захочется.</p>
       <p class="partner-text partner-desire">Гости «Парус Строгино» получают скидку на прокат. Достаточно сказать, что вы от нас.</p>
