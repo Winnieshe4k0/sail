@@ -194,15 +194,17 @@
     .admin-col-hints { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 30px 30px; gap: 8px; padding: 0 14px; }
     .admin-col-hint { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.28; }
 
-    /* FOR WHOM */
-    .forwhom-section { padding: 72px 48px; background: rgba(66,66,66,0.03); border-top: 1px solid rgba(66,66,66,0.08); }
-    .forwhom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
-    .fw-card { background: rgba(255,255,255,0.4); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 28px; }
-    .fw-prog-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); font-weight: 500; margin-bottom: 14px; }
-    .fw-title { font-family: 'Caprasimo', cursive; font-size: 18px; margin-bottom: 16px; }
-    .fw-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .fw-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.65; opacity: 0.65; }
-    .fw-dot { width: 5px; height: 5px; background: var(--amber); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+    /* PARTNERS */
+    .partners-section { padding: 72px 48px; border-top: 1px solid rgba(66,66,66,0.08); }
+    .partner-card { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center; background: rgba(255,255,255,0.38); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 40px; margin-top: 32px; }
+    .partner-logo { width: 200px; height: 110px; border-radius: 12px; overflow: hidden; background: rgba(253,180,78,0.07); border: 1.5px dashed rgba(66,66,66,0.16); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .partner-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .partner-logo-placeholder { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(66,66,66,0.28); font-weight: 500; }
+    .partner-name { font-family: 'Caprasimo', cursive; font-size: 22px; margin-bottom: 14px; }
+    .partner-text { font-size: 14px; line-height: 1.85; opacity: 0.65; margin-bottom: 10px; }
+    .partner-desire { opacity: 0.9; font-weight: 500; margin-bottom: 22px; }
+    .btn-partner { display: inline-flex; align-items: center; gap: 6px; background: #d41c1e; color: #fff; text-decoration: none; border-radius: 100px; padding: 12px 28px; font-size: 14px; font-family: 'DM Sans', sans-serif; font-weight: 500; transition: transform 0.15s, box-shadow 0.15s; }
+    .btn-partner:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,28,30,0.35); }
 
     /* CTA */
     .cta-section { padding: 0 48px 72px; }
@@ -229,6 +231,18 @@
     .cta-channel:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(42,171,238,0.45); }
 
     /* MOBILE */
+    /* BOATS */
+    .boats-section { padding: 72px 48px; border-top: 1px solid rgba(66,66,66,0.08); }
+    .boats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .boat-card { background: rgba(255,255,255,0.38); border: 1.5px solid rgba(66,66,66,0.1); border-radius: var(--radius); padding: 32px; }
+    .boat-name { font-family: 'Caprasimo', cursive; font-size: 24px; margin-bottom: 6px; }
+    .boat-sub { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.38; margin-bottom: 20px; font-weight: 500; }
+    .boat-desc { font-size: 14px; line-height: 1.85; opacity: 0.65; margin-bottom: 20px; }
+    .boat-learns { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .boat-learn-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.65; opacity: 0.65; }
+    .boat-dot { width: 5px; height: 5px; background: var(--amber); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+    .boat-note { padding-top: 20px; border-top: 1px solid rgba(66,66,66,0.08); font-size: 13px; opacity: 0.48; font-style: italic; line-height: 1.7; }
+
     @media (max-width: 768px) {
       nav { padding: 12px 20px; }
       .nav-links, .nav-btn { display: none; }
@@ -238,7 +252,10 @@
       .page-h1 { font-size: 36px; }
       .page-sub { font-size: 14px; max-width: 100%; }
 
-      .compare-section, .day-section, .schedule-section, .forwhom-section { padding: 48px 20px; }
+      .compare-section, .boats-section, .day-section, .schedule-section, .partners-section { padding: 48px 20px; }
+      .partner-card { grid-template-columns: 1fr; gap: 24px; }
+      .partner-logo { width: 100%; height: 90px; }
+      .boats-grid { grid-template-columns: 1fr; }
 
       .programs-grid { grid-template-columns: 1fr; }
 
@@ -252,8 +269,6 @@
       .admin-row { grid-template-columns: 1fr 1fr; }
       .admin-col-hints { display: none; }
       .admin-form-row { grid-template-columns: 1fr; }
-
-      .forwhom-grid { grid-template-columns: 1fr; }
 
       .cta-section { padding: 0 20px 48px; }
       .cta-box { flex-direction: column; padding: 36px 28px; gap: 28px; align-items: flex-start; }
@@ -328,7 +343,7 @@
     <div class="quick-stat">
       <div class="qs-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M12 3L5 13h7M12 5l6 8h-6M4 17h16M7 21h10"/></svg></div>
       <div class="qs-text">
-        <strong>Laser · Луч · Optimist</strong>
+        <strong>Луч · Оптимист</strong>
         <span>Классы яхт в программе</span>
       </div>
     </div>
@@ -367,18 +382,24 @@
     <div class="program-card">
       <div class="prog-header">
         <div class="prog-badge">Стандарт</div>
-        <div class="prog-name">Парус Строгино</div>
-        <div class="prog-tagline">Парус, сапборд, команда и настоящая атмосфера. Место силы, свободы и дружбы — с утра до вечера.</div>
+        <div class="prog-tagline">Парус, сапсёрфинг, команда и настоящая атмосфера. Место силы, свободы и дружбы — с утра до вечера.</div>
       </div>
       <div class="prog-body">
         <div class="prog-includes">
           <div class="prog-includes-label">Что входит</div>
-          <div class="prog-feature"><div class="feat-dot"></div><span>Парусный спорт на яхтах Laser, Луч, Optimist</span></div>
-          <div class="prog-feature"><div class="feat-dot"></div><span>Сапборд — катание на доске с веслом</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Парусный спорт на яхтах Оптимист и Луч</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Занятия сапсёрфингом</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Командные игры и квесты</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Работа в команде и развитие самостоятельности</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Наблюдение тренера и групповая работа</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Живая спортивная среда и атмосфера лагеря</span></div>
+        </div>
+        <div class="prog-includes">
+          <div class="prog-includes-label">Кому подойдёт</div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Пробует парусный спорт впервые</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Любит активный отдых на воде и команду</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Ищет новых друзей и живую атмосферу</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Хочет провести лето с пользой и настоящими эмоциями</span></div>
         </div>
         <div class="prog-prices">
           <div class="price-row"><span><svg class="price-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.64 5.64l2.12 2.12M18.36 18.36l-2.12-2.12M18.36 5.64l-2.12 2.12M5.64 18.36l2.12-2.12"/></svg>Разовое посещение</span><strong>5 000 ₽</strong></div>
@@ -393,7 +414,6 @@
     <div class="program-card pro">
       <div class="prog-header">
         <div class="prog-badge">Углублённая</div>
-        <div class="prog-name">Strogino Sail</div>
         <div class="prog-tagline">Формат для детей, где помимо тренировок мы уделяем внимание развитию личности, мышлению и взаимодействию в команде.</div>
       </div>
       <div class="prog-body">
@@ -412,6 +432,13 @@
           <div class="prog-feature"><div class="feat-dot"></div><span>Обратная связь родителям после каждого периода</span></div>
           <div class="prog-feature"><div class="feat-dot"></div><span>Сопровождение и рекомендации по развитию</span></div>
         </div>
+        <div class="prog-includes">
+          <div class="prog-includes-label">Кому подойдёт</div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Есть опыт в парусе или хочет серьёзного развития</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Нужна индивидуальная работа с тренером</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Готов к интенсивной и осознанной работе</span></div>
+          <div class="prog-feature"><div class="feat-dot"></div><span>Родители хотят видеть прогресс и получать обратную связь</span></div>
+        </div>
         <div class="prog-prices">
           <div class="price-row"><span><svg class="price-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.64 5.64l2.12 2.12M18.36 18.36l-2.12-2.12M18.36 5.64l-2.12 2.12M5.64 18.36l2.12-2.12"/></svg>День</span><strong>8 500 ₽</strong></div>
           <div class="price-row"><span><svg class="price-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 12c2-3.5 4-3.5 6 0s4 3.5 6 0 4-3.5 6 0"/><path d="M2 17c2-3.5 4-3.5 6 0s4 3.5 6 0 4-3.5 6 0"/></svg>Неделя</span><strong>32 000 ₽</strong></div>
@@ -421,6 +448,38 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- BOATS -->
+<section class="boats-section" id="boats">
+  <div class="section-label">На чём ходим</div>
+  <h2 class="section-h2">Лодки в программе</h2>
+  <div class="boats-grid">
+    <div class="boat-card">
+      <div class="boat-name">Оптимист</div>
+      <div class="boat-sub">Начальный класс · 7–15 лет</div>
+      <p class="boat-desc">На тренировках и в лагере дети начинают на «Оптимисте» — основной детской спортивной яхте, с которой начинается путь практически каждого яхтсмена в мире. Несмотря на компактный размер, это полноценная спортивная лодка: на ней проводят тренировки, соревнования и большие детские регаты.</p>
+      <div class="boat-learns">
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Чувствовать ветер и понимать воду</span></div>
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Работать с парусом и вязать узлы</span></div>
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Управлять лодкой самостоятельно</span></div>
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Принимать первые решения на воде</span></div>
+      </div>
+      <div class="boat-note">Безопасный, понятный — и очень хорошо развивает самостоятельность, внимание и уверенность. С этой лодки начинается настоящая любовь к парусному спорту.</div>
+    </div>
+    <div class="boat-card">
+      <div class="boat-name">Луч</div>
+      <div class="boat-sub">Laser 4.7 · Radial · Standard</div>
+      <p class="boat-desc">Следующий шаг после «Оптимиста» — лодка класса «Луч» (Laser). Более взрослая и динамичная. Мы постепенно знакомим ребят с этим классом, чтобы они чувствовали переход и были готовы к следующему этапу. «Луч» используют как подростки, так и взрослые спортсмены — на тренировках и серьёзных соревнованиях по всему миру.</p>
+      <div class="boat-learns">
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Управление на высокой скорости</span></div>
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Активная работа корпусом</span></div>
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Гоночная тактика и принятие решений</span></div>
+        <div class="boat-learn-item"><div class="boat-dot"></div><span>Понимание настоящего яхтинга</span></div>
+      </div>
+      <div class="boat-note">Класс делится на Laser 4.7, Radial и Standard — разная площадь паруса под разный возраст и уровень подготовки. Важный следующий шаг для тех, кто готов к большому парусному спорту.</div>
+    </div>
   </div>
 </section>
 
@@ -469,7 +528,7 @@
       <div class="tl-right">
         <div class="tl-tag">Вода</div>
         <div class="tl-title">Парусная тренировка</div>
-        <div class="tl-desc">Выходим на воду. Яхты Laser, Луч или Optimist в зависимости от уровня. Групповая работа с тренером.</div>
+        <div class="tl-desc">Выходим на воду. Яхты Оптимист и Луч в зависимости от уровня. Групповая работа с тренером.</div>
       </div>
     </div>
     <div class="timeline-item">
@@ -492,8 +551,8 @@
       </div>
       <div class="tl-right">
         <div class="tl-tag">Активность</div>
-        <div class="tl-title">Сапбординг, игры и командные активности</div>
-        <div class="tl-desc">Стендап-паддлбординг, водные игры, квесты на воде. Развиваем командный дух и самостоятельность.</div>
+        <div class="tl-title">Сапсёрфинг, игры и командные активности</div>
+        <div class="tl-desc">Сапсёрфинг, водные игры и квесты. Развиваем командный дух и самостоятельность.</div>
       </div>
     </div>
     <div class="timeline-item">
@@ -602,9 +661,9 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-right">
-        <div class="tl-tag">Сапборд / Отдых</div>
+        <div class="tl-tag">Сапсёрфинг / Отдых</div>
         <div class="tl-title">Свободная активность</div>
-        <div class="tl-desc">Сапбординг, свободное катание, командные игры. Время без структуры — важно для восстановления и живого взаимодействия.</div>
+        <div class="tl-desc">Сапсёрфинг, свободное катание, командные игры. Время без структуры — важно для восстановления и живого взаимодействия.</div>
       </div>
     </div>
     <div class="timeline-item">
@@ -630,32 +689,24 @@
   </div>
 </section>
 
-<!-- FOR WHOM -->
-<section class="forwhom-section">
-  <div class="section-label">Кому подойдёт</div>
-  <h2 class="section-h2">Для кого каждая программа</h2>
-  <div class="forwhom-grid">
-    <div class="fw-card">
-      <div class="fw-prog-label">Парус Строгино · Стандарт</div>
-      <div class="fw-title">Идеально если ваш ребёнок...</div>
-      <ul class="fw-list">
-        <li class="fw-item"><div class="fw-dot"></div><span>Хочет попробовать парусный спорт впервые</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Любит активный отдых на воде и командные игры</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Ищет новых друзей и живую спортивную среду</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Готов к групповой работе и общему темпу</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Хочет провести лето с пользой и настоящими эмоциями</span></li>
-      </ul>
+<!-- PARTNERS -->
+<section class="partners-section">
+  <div class="section-label">Партнёры</div>
+  <h2 class="section-h2">Вода не заканчивается на тренировке</h2>
+  <div class="partner-card">
+    <div class="partner-logo">
+      <img src="images/part-1.svg" alt="Свой Сап" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="partner-logo-placeholder" style="display:none">part-1</span>
     </div>
-    <div class="fw-card">
-      <div class="fw-prog-label">Strogino Sail · Углублённая</div>
-      <div class="fw-title">Идеально если ваш ребёнок...</div>
-      <ul class="fw-list">
-        <li class="fw-item"><div class="fw-dot"></div><span>Уже знаком с парусом или хочет углублённого развития</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Нуждается в индивидуальном внимании тренера</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Родители хотят видеть динамику развития ребёнка</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Готов к более интенсивной и осознанной работе</span></li>
-        <li class="fw-item"><div class="fw-dot"></div><span>Хочет развивать не только технику, но и мышление</span></li>
-      </ul>
+    <div class="partner-content">
+      <div class="partner-name">Свой Сап</div>
+      <p class="partner-text">Если вы полюбили воду — останавливаться не нужно. Мы находимся на базе клуба «Свой Сап».</p>
+      <p class="partner-text">Отличный способ продолжить сезон всей семьёй — в выходные, вечером или просто когда захочется.</p>
+      <p class="partner-text partner-desire">Гости «Парус Строгино» получают скидку на прокат. Достаточно сказать, что вы от нас.</p>
+      <a href="https://supmoscow.ru" target="_blank" class="btn-partner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Перейти на сайт
+      </a>
     </div>
   </div>
 </section>
